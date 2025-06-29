@@ -56,6 +56,7 @@
                 </div>
                 <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
               </div>
+			  <a class="dropdown-item" href="<?php echo base_url('login/logout'); ?>">
             </form>
           </div>
           <ul class="navbar-nav navbar-nav-right">
