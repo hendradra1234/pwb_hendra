@@ -2,12 +2,12 @@
 class Login extends CI_controller{
     public function index()
     {
-        if(isset($_POST['login']))
+        if(!isset($_POST['login']))
         {
         	redirect(base_url('dashboard'), 'refresh');
         } else {
             $kode = $this->input->post('username', true);
-            $query = $this->db->query("SELECT * FROM user WHERE username = '$kode' LIMIT 1")->row();
+            $query = $this->db->query("SELECT * FROM users WHERE username = '$kode' LIMIT 1")->row();
             $pass = md5($this->input->post('password', true));
 
             if($query != NULL)

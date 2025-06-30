@@ -30,7 +30,7 @@
                 </div>
                 <h4>Silakan Masukkan Username dan Password</h4>
                 <h6 class="font-weight-light">Login.</h6>
-                <form class="pt-3">
+                <form class="pt-3"method="post" action="<?php echo base_url() ?>/login">
                   <div class="form-group">
                     <input type="text" name="username" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Masukkan Username">
                   </div>
@@ -38,8 +38,8 @@
                     <input type="password" name = "password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Masukkan Password">
                   </div>
                   	<div class="mt-3">
-						<button type="submit" class="btn btn-primary btn-block" name="login" value="login">LOGIN</button>
-            		</div>
+											<button type="submit" class="btn btn-primary btn-block" name="login" value="login">LOGIN</button>
+            				</div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
