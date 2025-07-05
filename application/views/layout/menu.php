@@ -24,12 +24,12 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-master" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">MASTER</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-crosshairs-gps menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse" id="ui-master">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>pelanggan">Pelanggan</a></li>
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>barang">Barang</a></li>
@@ -38,12 +38,12 @@
               </div>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-transaction" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">TRANSAKSI PELANGGAN</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-crosshairs-gps menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse" id="ui-transaction">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>lihat_pesanan">Lihat Pesanan</a></li>
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>lihat_pembayaran">Lihat Pembayaran</a></li>
@@ -51,12 +51,12 @@
               </div>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-report" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">LAPORAN</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-crosshairs-gps menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse" id="ui-report">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>laporan_penjualan">Laporan Penjualan</a></li>
                 </ul>
