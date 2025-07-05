@@ -77,11 +77,3 @@ CREATE TABLE users (
 	password VARCHAR(100) NOT NULL,
 	user_role VARCHAR(50) NOT NULL
 );
-
--- 8
-CREATE TABLE expedisi (
-    kd_expedisi VARCHAR(10) PRIMARY KEY,
-    nama_expedisi VARCHAR(50) NOT NULL,
-	tujuan VARCHAR(200) NOT NULL,
-    ongkir INT(8) NOT NULL
-);

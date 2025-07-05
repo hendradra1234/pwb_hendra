@@ -33,7 +33,7 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>pelanggan">Pelanggan</a></li>
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>barang">Barang</a></li>
-				  <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>expedisi">Expedisi</a></li>
+				  <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>ekspedisi">EKSPEDISI</a></li>
                 </ul>
               </div>
             </li>

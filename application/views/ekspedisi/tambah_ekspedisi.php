@@ -2,20 +2,20 @@
 	<div class="col-md-12 grid-margin stretch-card">
 		<div class="card">
 			<div class="card-body">
-				<h3 align="left" style="color:red;">Halaman Tambah Expedisi<br></h3>
-				<p align="left" style="color:black;">Tambah Data Expedisi - BelajarAplikasi.com<br></p>
+				<h3 align="left" style="color:red;">Halaman Tambah ekspedisi<br></h3>
+				<p align="left" style="color:black;">Tambah Data ekspedisi - BelajarAplikasi.com<br></p>
 				<hr>
-				<form method="post" action="<?php echo base_url() ?>expedisi/tambah">
+				<form method="post" action="<?php echo base_url() ?>ekspedisi/tambah">
 					<div class="form-group">
-						<label for="cari">Kode Expedisi</label>
-						<input type="text" class="form-control" id="kd_expedisi" name="kd_expedisi"
-							placeholder="Kode expedisi">
+						<label for="cari">Kode ekspedisi</label>
+						<input type="text" class="form-control" id="kd_ekspedisi" name="kd_ekspedisi"
+							placeholder="Kode ekspedisi">
 					</div>
 
 					<div class="form-group">
-						<label for="exampleInputUsername1">Nama Expedisi</label>
-						<input type="text" class="form-control" id="exampleInputUsername1" placeholder="Nama expedisi"
-							name="nama_expedisi" id="nama_expedisi">
+						<label for="exampleInputUsername1">Nama ekspedisi</label>
+						<input type="text" class="form-control" id="exampleInputUsername1" placeholder="Nama ekspedisi"
+							name="nama_ekspedisi" id="nama_ekspedisi">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputUsername1">Tujuan</label>
