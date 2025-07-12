@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2025 at 09:00 AM
+-- Generation Time: Jul 12, 2025 at 07:01 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -79,6 +79,28 @@ CREATE TABLE `ekspedisi` (
 INSERT INTO `ekspedisi` (`kd_ekspedisi`, `nama_ekspedisi`, `tujuan`, `ongkir`) VALUES
 ('1', 'jne ekspedisi', 'sungailiat', 200000),
 ('2', 'jne kargo id', 'Toboali', 245000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `obat`
+--
+
+CREATE TABLE `obat` (
+  `kd_obat` varchar(5) NOT NULL,
+  `nm_obat` varchar(50) NOT NULL,
+  `satuan` varchar(15) NOT NULL,
+  `jenis_obat` varchar(25) NOT NULL,
+  `stok` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `obat`
+--
+
+INSERT INTO `obat` (`kd_obat`, `nm_obat`, `satuan`, `jenis_obat`, `stok`) VALUES
+('1', 'tes1', 'tes1', 'tes1', 2),
+('4', 'paracetamol ultra pro max', 'pack', 'obat keras', 100);
 
 -- --------------------------------------------------------
 
@@ -177,6 +199,12 @@ ALTER TABLE `barang`
 --
 ALTER TABLE `ekspedisi`
   ADD PRIMARY KEY (`kd_ekspedisi`);
+
+--
+-- Indexes for table `obat`
+--
+ALTER TABLE `obat`
+  ADD PRIMARY KEY (`kd_obat`);
 
 --
 -- Indexes for table `pelanggan`
