@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS pesanan;
 DROP TABLE IF EXISTS ada;
 DROP TABLE IF EXISTS pembayaran;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS obat;
 
 --  1
 CREATE TABLE pelanggan (
@@ -76,4 +77,12 @@ CREATE TABLE users (
 	username VARCHAR(10) NOT NULL,
 	password VARCHAR(100) NOT NULL,
 	user_role VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE obat (
+	kd_obat  VARCHAR(5) PRIMARY KEY,
+	nm_obat VARCHAR(50) NOT NULL,
+	satuan VARCHAR(15) NOT NULL,
+	jenis_obat VARCHAR(25) NOT NULL,
+	stok INT(3) NOT NULL
 );
