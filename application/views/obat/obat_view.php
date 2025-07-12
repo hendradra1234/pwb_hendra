@@ -11,7 +11,6 @@
 					<thead>
 						<tr class="warning" align="center" style="background: grey;color:white;font-weight: bold;">
 							<th scope="col" width="3%">No</th>
-							<th scope="col" width="10%">Gambar</th>
 							<th scope="col">Kode</th>
 							<th scope="col">Nama Obat</th>
 							<th scope="col">Jenis Obat</th>
