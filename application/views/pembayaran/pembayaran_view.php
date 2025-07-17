@@ -27,27 +27,29 @@
 					<tbody>
 						<?php
 							$no = 1;
-							foreach ($data as $list) {
-							?>
-							<tr class="active" align="center">
-								<td><?php echo $no; ?></td>
-								<td><?php echo $list->kd_pembayaran; ?></td>
-								<td><?php echo $list->tanggal_pembayaran; ?></td>
-								<td><?php echo $list->no_pesanan; ?></td>
-								<td><?php echo $list->nama; ?></td>
-								<td><?php echo $list->alamat; ?></td>
+							if (isset($data)) {
+								foreach ($data as $list) {
+								?>
+									<tr class="active" align="center">
+										<td><?php echo $no; ?></td>
+										<td><?php echo $list->kd_pembayaran; ?></td>
+										<td><?php echo $list->tanggal_pembayaran; ?></td>
+										<td><?php echo $list->no_pesanan; ?></td>
+										<td><?php echo $list->nama; ?></td>
+										<td><?php echo $list->alamat; ?></td>
 
-								<td><a href="<?php echo base_url() ?>../bukti_transfer/<?php echo $list->bukti_transfer; ?>"
-										class="image-popup">
-										<img style="width:40px;height:40px;"
-											src="<?php echo base_url() ?>../bukti_transfer/<?php echo $list->bukti_transfer ?>"
-											alt="" />
-									</a></td>
-								<td>Rp.<?php echo number_format($list->ongkir); ?></td>
-								<td class="total">Rp.<?php echo number_format($list->total + $list->ongkir); ?></td>
+										<td><a href="<?php echo base_url() ?>../bukti_transfer/<?php echo $list->bukti_transfer; ?>"
+												class="image-popup">
+												<img style="width:40px;height:40px;"
+													src="<?php echo base_url() ?>../bukti_transfer/<?php echo $list->bukti_transfer ?>"
+													alt="" />
+											</a></td>
+										<td>Rp.<?php echo number_format($list->ongkir); ?></td>
+										<td class="total">Rp.<?php echo number_format($list->total + $list->ongkir); ?></td>
 
-							</tr>
-							<?php $no++;
+									</tr>
+									<?php $no++;
+								}
 							}
 							?>
 					</tbody>

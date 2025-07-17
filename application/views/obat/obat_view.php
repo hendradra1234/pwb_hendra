@@ -21,24 +21,26 @@
 					</thead>
 					<tbody>
 						<?php
-							$no= 1;
-							foreach ($data as $list) { ?>
-							<tr class="active" align="center">
-								<td><?php echo $no; ?></td>
-								<td><?php echo $list->kd_obat; ?></td>
-								<td><?php echo $list->nm_obat; ?></td>
-								<td><?php echo $list->satuan; ?></td>
-								<td><?php echo $list->jenis_obat; ?></td>
-								<td><?php echo $list->stok; ?></td>
-								<td>
-									<a href="<?php echo base_url() ?>obat/edit/<?php echo $list->kd_obat; ?>"><span
-											class="badge bg-warning">EDIT</span></a>
-									<a href="<?php echo base_url() ?>obat/delete/<?php echo $list->kd_obat; ?>"><span
-											class="badge bg-danger">DELETE</span></a>
-								</td>
-							</tr>
-							<?php $no++;
-								} ?>
+								$no= 1;
+								if (isset($data)) {
+									foreach ($data as $list) { ?>
+									<tr class="active" align="center">
+										<td><?php echo $no; ?></td>
+										<td><?php echo $list->kd_obat; ?></td>
+										<td><?php echo $list->nm_obat; ?></td>
+										<td><?php echo $list->satuan; ?></td>
+										<td><?php echo $list->jenis_obat; ?></td>
+										<td><?php echo $list->stok; ?></td>
+										<td>
+											<a href="<?php echo base_url() ?>obat/edit/<?php echo $list->kd_obat; ?>"><span
+													class="badge bg-warning">EDIT</span></a>
+											<a href="<?php echo base_url() ?>obat/delete/<?php echo $list->kd_obat; ?>"><span
+													class="badge bg-danger">DELETE</span></a>
+										</td>
+									</tr>
+									<?php $no++;
+								}
+							} ?>
 					</tbody>
 				</table>
 			</div>

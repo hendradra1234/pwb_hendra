@@ -26,22 +26,24 @@
 					<tbody>
 						<?php
 							$no = 1;
-							foreach ($data as $list) { ?>
-								<tr class="active" align="center">
-									<td><?php echo $no; ?></td>
-									<td><?php echo $list->no_pesanan; ?></td>
-									<td><?php echo $list->tanggal_pesanan; ?></td>
-									<td><?php echo $list->nama; ?></td>
-									<td><?php echo $list->alamat; ?></td>
-									<td><?php echo $list->telp; ?></td>
-									<td><?php echo $list->nama_ekspedisi; ?></td>
-									<td><span class="badge bg-success"><?php echo $list->status; ?></span></td>
-									<td>
-										<a href="<?php echo base_url() ?>pesanan/delete/<?php echo $list->no_pesanan ?>"></span><span
-												class="badge bg-danger">DELETE</span></a>
-									</td>
-								</tr>
-								<?php $no++;
+							if (isset($data)) {
+								foreach ($data as $list) { ?>
+									<tr class="active" align="center">
+										<td><?php echo $no; ?></td>
+										<td><?php echo $list->no_pesanan; ?></td>
+										<td><?php echo $list->tanggal_pesanan; ?></td>
+										<td><?php echo $list->nama; ?></td>
+										<td><?php echo $list->alamat; ?></td>
+										<td><?php echo $list->telp; ?></td>
+										<td><?php echo $list->nama_ekspedisi; ?></td>
+										<td><span class="badge bg-success"><?php echo $list->status; ?></span></td>
+										<td>
+											<a href="<?php echo base_url() ?>pesanan/delete/<?php echo $list->no_pesanan ?>"></span><span
+													class="badge bg-danger">DELETE</span></a>
+										</td>
+									</tr>
+									<?php $no++;
+								}
 							}
 							?>
 					</tbody>

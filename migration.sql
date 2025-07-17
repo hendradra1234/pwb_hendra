@@ -57,7 +57,7 @@ CREATE TABLE pesanan (
 CREATE TABLE ada (
 	no_pesanan VARCHAR(10) NOT NULL,
 	kd_barang VARCHAR(10) NOT NULL,
-	th INT(3) NOT NULL,
+	qty INT(3) NOT NULL,
 	harga INT(8) NOT NULL,
 	FOREIGN KEY (no_pesanan) REFERENCES pesanan(no_pesanan),
     FOREIGN KEY (kd_barang) REFERENCES barang(kd_barang)

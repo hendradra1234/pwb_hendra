@@ -24,6 +24,7 @@
 					<tbody>
 						<?php
 							$no= 1;
+							if (isset($data)) {
 							foreach ($data as $list) { ?>
 							<tr class="active" align="center">
 								<td><?php echo $no; ?></td>
@@ -43,6 +44,9 @@
 							</tr>
 							<?php $no++;
 								} ?>
+								<?php
+					}
+				?>
 					</tbody>
 				</table>
 			</div>

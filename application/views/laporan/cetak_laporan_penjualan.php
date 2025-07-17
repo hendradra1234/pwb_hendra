@@ -33,6 +33,7 @@ dataTables.bootstrap4.css">
 						<?php
 					$no = 1;
 					$total_bayar = 0;
+					if (isset($data)) {
 					foreach ($data['data'] as $key => $value) {
 					// $total_bayar += $list->subtotal;
 					?>
@@ -73,7 +74,9 @@ dataTables.bootstrap4.css">
 						<td class="font-weight-bold text-center"> Rp. <?= number_format($data['total_seluruh_laporan'])
 				?></td>
 						</tr>
-
+				<?php
+					}
+				?>
 					</tbody>
 				</table>
 			</div>

@@ -21,20 +21,22 @@
 					<tbody>
 					<?php
 						$no= 1;
-						foreach ($data as $list) { ?>
-							<tr class="active" align="center">
-								<td><?php echo $no; ?></td>
-								<td><?php echo $list->nama_pelanggan; ?></td>
-								<td><?php echo $list->alamat_pelanggan; ?></td>
-								<td><?php echo $list->kota_pelanggan; ?></td>
-								<td><?php echo $list->telp_pelanggan; ?></td>
-								<td><?php echo $list->email_pelanggan; ?></td>
-								<td>
-									<a href="<?php echo base_url() ?>pelanggan/delete/<?php echo $list->kd_pelanggan; ?>"><span
-											class="badge bg-danger">DELETE</span></a>
-								</td>
-							</tr>
-						<?php $no++;
+						if (isset($data)) {
+							foreach ($data as $list) { ?>
+								<tr class="active" align="center">
+									<td><?php echo $no; ?></td>
+									<td><?php echo $list->nama_pelanggan; ?></td>
+									<td><?php echo $list->alamat_pelanggan; ?></td>
+									<td><?php echo $list->kota_pelanggan; ?></td>
+									<td><?php echo $list->telp_pelanggan; ?></td>
+									<td><?php echo $list->email_pelanggan; ?></td>
+									<td>
+										<a href="<?php echo base_url() ?>pelanggan/delete/<?php echo $list->kd_pelanggan; ?>"><span
+												class="badge bg-danger">DELETE</span></a>
+									</td>
+								</tr>
+							<?php $no++;
+						}
 					} ?>
 					</tbody>
 				</table>
