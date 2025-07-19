@@ -1,5 +1,5 @@
 <?php
-	if ($isi) {
+	if($isi) {
 		$this->load->view($isi);
 	}
 ?>

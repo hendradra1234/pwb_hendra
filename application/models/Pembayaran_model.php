@@ -1,21 +1,49 @@
 <?php
 class Pembayaran_model extends CI_Model {
-	function __construct() {
-		$this->load->database();
+    function __construct() {
+        $this->load->database(); //untuk memanggil database
+    }
+
+    function get_pembayaran($kd_pelanggan) {
+        $query = $this->db->query("select * from pesanan a left join pembayaran b on a.no_pesanan = b.no_pesanan where a.kd_pelanggan='$kd_pelanggan'");
+        if($query->num_rows() > 0) {
+            return $query->result();
+        }
+    }
+
+    function get_no_pesanan() {
+        $query = $this->db->query("select * from pesanan");
+        if($query->num_rows() > 0) {
+            return $query->num_rows() + 1;
+        }
+    }
+
+    function buatkode() {
+        $barisorder = $this->db->get('pembayaran')->row();
+        if(!empty($barisorder->kd_pembayaran)) {
+            $kode = intval(substr($barisorder->kd_pembayaran,4,3)) + 1;
+            $kode = "PMB".str_pad($kode, 3, "0", STR_PAD_LEFT);
+        } else {
+            $kode = 'PMB001';
+        }
+        return $kode;
+    }
+
+	public function get_bayar($id) {
+		return $this->db->query("SELECT * FROM pesanan,pelanggan,ekspedisi WHERE pelanggan.kd_pelanggan=pesanan.kd_pelanggan AND ekspedisi.kd_ekspedisi=pesanan.kd_ekspedisi AND pesanan.status = 'Belum Bayar' AND pesanan.no_pesanan = '$id'");
 	}
 
-	public function data_pembayaran() {
-		$query = $this->db->query("select pembayaran.kd_pembayaran,pembayaran.tanggal_pembayaran,pesanan.no_pesanan,pembayaran.bukti_transfer,pesanan.nama,pesanan.alamat,sum(ada.qty * ada.harga) as total,ekspedisi.ongkir from pembayaran,pesanan,pelanggan,ada,barang,ekspedisi where pesanan.no_pesanan=pembayaran.no_pesanan and pesanan.kd_pelanggan = pelanggan.kd_pelanggan and pesanan.no_pesanan=ada.no_pesanan and ada.kd_barang=barang.kd_barang and ekspedisi.kd_ekspedisi=pesanan.kd_ekspedisi GROUP BY pembayaran.kd_pembayaran,pembayaran.tanggal_pembayaran,pesanan.no_pesanan,pembayaran.bukti_transfer,pesanan.nama,pesanan.alamat ORDER BY pembayaran.kd_pembayaran ASC");
-		if($query->num_rows() > 0) {
-			return $query->result();
-		}
+	public function get_pembayaran1($id) {
+		return $this->db->query("SELECT * FROM pesanan,ada,barang WHERE pesanan.no_pesanan=ada.no_pesanan AND ada.kd_barang=barang.kd_barang AND pesanan.status = 'Belum Bayar' AND pesanan.no_pesanan = '$id'");
 	}
 
-	public function get_pembayaran($no_pesanan='') {
-		$query = $this->db->query("SELECT * FROM ada, barang WHERE ada.kd_barang = barang.kd_barang AND ada.no_pesanan = '$no_pesanan'");
-		if($query->num_rows() > 0) {
-			return $query->result();
-		}
+	public function get_brg($id) {
+		return $this->db->query("SELECT * FROM ada, barang WHERE ada.kd_barang = barang.kd_barang AND no_pesanan = '$id'");
 	}
-}
+
+	public function edit_status($table_name, $data1, $kd) {
+		$this->db->where('no_pesanan', $kd);
+		$this->db->update($table_name, $data1);
+	}
+	}
 ?>

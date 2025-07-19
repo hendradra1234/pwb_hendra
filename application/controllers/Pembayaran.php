@@ -2,28 +2,75 @@
 	class Pembayaran extends CI_Controller {
 		public function __construct() {
 			parent::__construct();
-			$this->load->model('Pembayaran_model');
 			$this->load->model('General_model');
-			$this->load->model('Pesanan_model');
-			$this->load->model('Pelanggan_model');
-			$this->load->model('Barang_model');
+			$this->load->model('Keranjang_model');
+			$this->load->model('Pembayaran_model');
 		}
 
-		function index() {
-			$query = $this->Pembayaran_model->data_pembayaran();
-			$data = array(
-				'title' => 'Halaman Dashboard Administrator E-Commerce',
-				'isi' => 'pembayaran/pembayaran_view',
-				'data' => $query
-			);
-			$this->load->view('layout/wrapper', $data);
+		public function index() {
+			if(($this->session->userdata('username')) != null) {
+				$kd_pelanggan = $this->session->userdata('username');
+				$data = array (
+					'data' => $this->Pembayaran_model->get_pembayaran($kd_pelanggan),
+					'isi' => 'pembayaran/pembayaran_view'
+				);
+				$this->load->view('Layout/Wrapper', $data);
+			}
 		}
 
-		public function delete($id='') {
-			$where_data['kd_pembayaran'] = $id;
-			$this->General_model->delete_data('pembayaran', $where_data);
-			//$this->General_model->delete_data('ada', $where_data);
-			redirect(base_url().'pembayaran/');
+		public function bayar($id) {
+			if(($this->session->userdata('username')) != null) {
+				$kd_pelanggan = $this->session->userdata('username');
+				$data = array (
+					'data1' => $this->Pembayaran_model->get_brg($id)->result(),
+					'data' => $this->Pembayaran_model->get_bayar($id)->result(),
+					'isi' => 'pembayaran/pembayaran_view'
+				);
+				$this->load->view('Layout/Wrapper', $data);
+			}
 		}
-}
+
+		public function simpan() {
+			if(($this->session->userdata('username')) != null) {
+				$kd_pembayaran = $this->Pembayaran_model->buatkode();
+				$kd_pelanggan = $this->session->userdata('username');
+				$config['upload_path'] = './bukti/';
+				$config['allowed_types'] = 'jpg|png|jpeg';
+				$config['max_size'] = 2048;
+				$config['file_name'] = $kd_pembayaran;
+				$this->load->library('upload', $config);
+				$this->upload->do_upload('bukti_transfer');
+
+				$gbr = $this->upload->data();
+				$gbr = $gbr['file_name'];
+
+				$data = array(
+					'kd_pembayaran' => $kd_pembayaran,
+					'tanggal_pembayaran' => date('Y-m-d'),
+					'bukti_transfer' => $gbr,
+					'no_pesanan' => $this->input->post('no_pesanan')
+				);
+
+				$data1 = array(
+					'status' => 'Sudah Bayar'
+				);
+				$this->Pembayaran_model->edit_status('pesanan', $data1, $this->input->post('no_pesanan'));
+				$this->General_model->add_new('pembayaran', $data);
+				redirect(base_url() . 'Home/');
+			}
+		}
+
+		public function histori_pesanan_pelanggan() {
+			if(($this->session->userdata('username')) != null) {
+				$kd_pelanggan = $this->session->userdata('username');
+				$no_pesanan = $this->Keranjang_model->get_no_pesanan();
+				$data = array (
+					'data3' => $this->Keranjang_model->histori_pesanan_pelanggan($kd_pelanggan)->result(),
+					'data4' => $this->Keranjang_model->histori_detail_pelanggan($kd_pelanggan)->result(),
+					'isi' => 'Keranjang/Histori_pesanan_pelanggan'
+				);
+				$this->load->view('Layout/Wrapper', $data);
+			}
+		}
+	}
 ?>

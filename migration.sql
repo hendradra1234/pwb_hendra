@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS pembayaran;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS obat;
 DROP TABLE IF EXISTS pesanan;
+DROP TABLE IF EXISTS keranjang;
 
 --  1
 CREATE TABLE pelanggan (
@@ -89,9 +90,24 @@ CREATE TABLE obat (
 );
 
 CREATE TABLE pesanan (
-	kd_obat  VARCHAR(5) PRIMARY KEY,
-	nm_obat VARCHAR(50) NOT NULL,
-	satuan VARCHAR(15) NOT NULL,
-	jenis_obat VARCHAR(25) NOT NULL,
-	stok INT(3) NOT NULL
+	no_pesanan  VARCHAR(10) PRIMARY KEY,
+	tanggal_pesanan DATE NOT NULL,
+	nama VARCHAR(50) NOT NULL,
+	alamat VARCHAR(100) NOT NULL,
+	telp VARCHAR(15) NOT NULL,
+	status VARCHAR(50) NOT NULL,
+	kd_ekspedisi VARCHAR(10) NOT NULL,
+	kd_pelanggan INT(10) NOT NULL,
+
+	FOREIGN KEY (kd_ekspedisi) REFERENCES ekspedisi(kd_ekspedisi),
+    FOREIGN KEY (kd_pelanggan) REFERENCES pelanggan(kd_pelanggan)
+);
+
+CREATE TABLE keranjang (
+	kd_pelanggan VARCHAR(10) NOT NULL,
+	kd_barang VARCHAR(10) NOT NULL,
+	qty INT(3) NOT NULL,
+
+    FOREIGN KEY (kd_pelanggan) REFERENCES pelanggan(kd_pelanggan),
+	FOREIGN KEY (kd_barang) REFERENCES barang(kd_barang)
 );

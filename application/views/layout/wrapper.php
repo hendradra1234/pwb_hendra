@@ -1,6 +1,6 @@
 <?php
-	require_once('header.php');
-	require_once('menu.php');
-	require_once('konten.php');
-	require_once('footer.php');
+	require_once('Menu.php');
+	require_once('Slideshow.php');
+	require_once('Konten.php');
+	require_once('Footer.php');
 ?>
