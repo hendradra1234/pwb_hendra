@@ -45,12 +45,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php
-        $grandtotal = 0;
-        $total = 0;
-        foreach ($data1 as $row) {
-            $total += $row->qty * $row->harga;
-            ?>
+						<?php
+        				$grandtotal = 0;
+        				$total = 0;
+        				foreach ($data1 as $row) {
+        				    $total += $row->qty * $row->harga;
+            			?>
 							<tr class="text-center">
 								<td class="product-remove">
 									<a href="<?php echo base_url() ?>keranjang/clear/<?php echo $row->kd_barang ?>"><span

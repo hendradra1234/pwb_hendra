@@ -120,6 +120,19 @@
 				} else {
 					$this->index();
 				}
+		}
+
+		public function histori_pesanan_pelanggan() {
+			if(($this->session->userdata('username')) != null) {
+				$kd_pelanggan = $this->session->userdata('username');
+				$no_pesanan = $this->Keranjang_model->get_no_pesanan();
+				$data = array (
+					'data3' => $this->Keranjang_model->histori_pesanan_pelanggan($kd_pelanggan)->result(),
+					'data4' => $this->Keranjang_model->histori_detail_pelanggan($kd_pelanggan)->result(),
+					'isi' => 'Keranjang/Histori_pesanan_pelanggan'
+				);
+				$this->load->view('Layout/Wrapper', $data);
 			}
 		}
+	}
 ?>

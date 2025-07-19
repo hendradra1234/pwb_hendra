@@ -39,7 +39,7 @@
 								</center>
 							</div>
 						</div>
-
+						<p>Tersedia : <?php echo $data->stok; ?></p>
 						<br>
 						<div class="d-flex align-items-center mb-4 pt-2">
 							<button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>
