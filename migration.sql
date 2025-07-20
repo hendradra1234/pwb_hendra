@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS keranjang;
 
 --  1
 CREATE TABLE pelanggan (
-    kd_pelanggan VARCHAR(3) PRIMARY KEY,
+    kd_pelanggan INT(3) PRIMARY KEY,
     nama_pelanggan VARCHAR(50) NOT NULL,
     alamat_pelanggan VARCHAR(100) NOT NULL,
     kota_pelanggan VARCHAR(50) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE pesanan (
     telp VARCHAR(15) NOT NULL,
     status VARCHAR(50) NOT NULL,
 	kd_ekspedisi VARCHAR(10) NOT NULL,
-	kd_pelanggan VARCHAR(10) NOT NULL,
+	kd_pelanggan INT(3) NOT NULL,
     FOREIGN KEY (kd_ekspedisi) REFERENCES ekspedisi(kd_ekspedisi),
 	FOREIGN KEY (kd_pelanggan) REFERENCES pelanggan(kd_pelanggan)
 );
@@ -89,25 +89,33 @@ CREATE TABLE obat (
 	stok INT(3) NOT NULL
 );
 
-CREATE TABLE pesanan (
-	no_pesanan  VARCHAR(10) PRIMARY KEY,
-	tanggal_pesanan DATE NOT NULL,
-	nama VARCHAR(50) NOT NULL,
-	alamat VARCHAR(100) NOT NULL,
-	telp VARCHAR(15) NOT NULL,
-	status VARCHAR(50) NOT NULL,
-	kd_ekspedisi VARCHAR(10) NOT NULL,
-	kd_pelanggan INT(10) NOT NULL,
-
-	FOREIGN KEY (kd_ekspedisi) REFERENCES ekspedisi(kd_ekspedisi),
-    FOREIGN KEY (kd_pelanggan) REFERENCES pelanggan(kd_pelanggan)
-);
-
 CREATE TABLE keranjang (
-	kd_pelanggan VARCHAR(10) NOT NULL,
+	kd_pelanggan INT(3) NOT NULL,
 	kd_barang VARCHAR(10) NOT NULL,
 	qty INT(3) NOT NULL,
 
     FOREIGN KEY (kd_pelanggan) REFERENCES pelanggan(kd_pelanggan),
 	FOREIGN KEY (kd_barang) REFERENCES barang(kd_barang)
 );
+
+-- Default Migration
+
+INSERT INTO `barang` (`kd_barang`, `nama_barang`, `stok`, `harga`, `berat`, `satuan`, `keterangan`, `gambar`) VALUES
+('1', 'LA San Franciso Bay Condo', 1, 25000000, 20, '10', '1', 'josh-bean-Gecsh_1GOz4-unsplash.jpg'),
+('2', 'b2 spirit used', 3, 250000, 3, 'kg', 'b2 spirit', 'b2_2.jpg');
+
+INSERT INTO `ekspedisi` (`kd_ekspedisi`, `nama_ekspedisi`, `tujuan`, `ongkir`) VALUES
+('1', 'jne ekspedisi', 'sungailiat', 200000),
+('2', 'jne kargo id', 'Toboali', 245000);
+
+INSERT INTO `obat` (`kd_obat`, `nm_obat`, `satuan`, `jenis_obat`, `stok`) VALUES
+('1', 'tes1', 'tes1', 'tes1', 2),
+('4', 'paracetamol ultra pro max', 'pack', 'obat keras', 100);
+
+INSERT INTO `pelanggan` (`kd_pelanggan`, `nama_pelanggan`, `alamat_pelanggan`, `kota_pelanggan`, `telp_pelanggan`, `email_pelanggan`, `password`) VALUES
+('1', 'novi yunita', 'jakarta barat, indonesia', 'jakarta', '082788271281', 'noviynita@gmail.com', '25d55ad283aa400af464c76d713c07ad'),
+('2', 'via lestari', 'jalan sisingamangaraja no 3 kudai', 'sungailiat', '087277717652', 'vialestari@gmail.com', '25f9e794323b453885f5181f1b624d0b');
+
+INSERT INTO `users` (`id`, `username`, `password`, `user_role`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(2, 'user', 'user', 'user');

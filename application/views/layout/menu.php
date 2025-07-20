@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="<?php echo base_url() ?>img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -109,7 +109,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid mb-0">
         <div class="row border-top px-xl-5">
-           
+
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <a href="<?php echo base_url() ?>" class="text-decoration-none d-block d-lg-none">
@@ -132,10 +132,10 @@
                                 </div>
                             </div>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">OHistori Pesanan</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Histori Pesanan</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <!-- <a href="<?php echo base_url() ?>keranjang" class="dropdown-item">Keranjang</a> -->
-									<!-- <a href="<?php echo base_url() ?>konfirmasi" class="dropdown-item">Konfirmasi Pembayaran</a> -->
+                                    <!-- <a href="<?php echo base_url() ?>keranjang" class="dropdown-item">Keranjang</a>
+									<a href="<?php echo base_url() ?>pembayaran" class="dropdown-item">Konfirmasi Pembayaran</a> -->
 									<a href="<?php echo base_url() ?>keranjang/histori_pesanan_pelanggan" class="dropdown-item">Histori Pesanan</a>
                                 </div>
                             </div>

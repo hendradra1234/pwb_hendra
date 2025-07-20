@@ -19,6 +19,7 @@ class Pembayaran_model extends CI_Model {
     }
 
     function buatkode() {
+		$this->db->select_max('kd_pembayaran');
         $barisorder = $this->db->get('pembayaran')->row();
         if(!empty($barisorder->kd_pembayaran)) {
             $kode = intval(substr($barisorder->kd_pembayaran,4,3)) + 1;

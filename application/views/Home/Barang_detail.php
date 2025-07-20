@@ -12,7 +12,7 @@
 					</div>
 				</div>
 				<div class="col-lg-7 pb-5">
-					<form action="<?php echo base_url() ?>keranjang/add" method="submit">
+					<form action="<?php echo base_url() ?>keranjang/add" method="post">
 						<h3 class="font-weight-semi-bold"><?php echo $data->nama_barang; ?></h3>
 						<div class="d-flex mb-3">
 							<div class="text-primary mr-2">
@@ -32,6 +32,8 @@
 						</div>
 						<div class="d-flex align-items-center mb-4 pt-2">
 							<h6 class="qty2">Jumlah : <br></h6>
+							<input type="text" hidden name="Id_Barang" value="<?php echo $data->kd_barang; ?>" style="text-align: center;" class="Id_Barang"
+										style="text-align: center;"/>
 							<div class="row-centered">
 								<center>&nbsp;&nbsp;&nbsp;<input type="number" name="quantity" data-min="1"
 										data-max="100" value="1" style="text-align: center;" class="qty2"

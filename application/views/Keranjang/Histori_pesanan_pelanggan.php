@@ -15,7 +15,7 @@
 						</thead>
 						<tbody>
 							<?php
-                            	if ($data3) {
+                            	if ($data3)
                             	    $grandtotal = 0;
                                 foreach ($data3 as $row) {
                                     foreach ($data4 as $col) {
@@ -40,7 +40,6 @@
 							</tr>
 							<?php
                                 }
-                            }
                             ?>
 						</tbody>
 					</table><br><br>

@@ -26,7 +26,7 @@ dataTables.bootstrap4.css">
 							<th scope="col">Nama Barang</th>
 							<th scope="col">Qty</th>
 							<th scope="col">Subtotal</th>
-							<th scope="col">Total</th>
+							<th scope="col" colspan="2">Total</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -43,24 +43,23 @@ dataTables.bootstrap4.css">
 							<td><?php echo $value['tanggal_pembayaran']; ?></td>
 							<td><?php echo $value['nama_pelanggan']; ?></td>
 							<td>
-							<td>
-								<?php foreach ($data['data']['$key']['data_barang'] as $keyDetail => $valueDetail) : ?>
+								<?php foreach ($data['data'][$key]['data_barang'] as $keyDetail => $valueDetail) : ?>
 								<p><?= $valueDetail['nama_barang'] ?></p>
 								<?php endforeach; ?>
 							</td>
 							<td>
-								<?php foreach ($data['data']['$key']['data_barang'] as $keyDetail => $valueDetail) : ?>
+								<?php foreach ($data['data'][$key]['data_barang'] as $keyDetail => $valueDetail) : ?>
 								<p> Rp <?= number_format($valueDetail['harga']) ?></p>
 								<?php endforeach; ?>
 							</td>
 							<td>
-								<?php foreach ($data['data']['$key']['data_barang'] as $keyDetail => $valueDetail) : ?>
+								<?php foreach ($data['data'][$key]['data_barang'] as $keyDetail => $valueDetail) : ?>
 								<p><?= $valueDetail['qty'] ?></p>
 								<?php endforeach; ?>
 							</td>
 							<td>
 								<?php
-					foreach ($data['data']['$key']['data_barang'] as $keyDetail => $valueDetail) :
+					foreach ($data['data'][$key]['data_barang'] as $keyDetail => $valueDetail) :
 					?>
 								<p> Rp <?= number_format($valueDetail['qty'] * $valueDetail['harga']) ?></p>
 								<?php endforeach; ?>

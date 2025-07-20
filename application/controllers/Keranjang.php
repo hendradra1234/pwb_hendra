@@ -27,7 +27,7 @@
 					$data = array(
 						'kd_pelanggan' => $kd_pelanggan,
 						'kd_barang' => $this->input->post('Id_Barang'),
-						'qty' => $this->input->post('quantity') - 1
+						'qty' => $this->input->post('quantity') + 1
 					);
 					$where_data['kd_pelanggan'] = $kd_pelanggan;
 					$where_data['kd_barang'] = $this->input->post('Id_Barang');
@@ -133,6 +133,11 @@
 				);
 				$this->load->view('Layout/Wrapper', $data);
 			}
+
+			// echo $this->session->userdata('email_pelanggan');
+			//  echo $this->session->userdata('telp_pelanggan');
+			// echo $this->session->userdata('username');
+			// echo $this->session->userdata('user');
 		}
 	}
 ?>

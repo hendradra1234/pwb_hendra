@@ -54,7 +54,7 @@
 									</a>
 								</td>
 								<td class="image-prod"><img
-										src="<?php echo base_url() . '../gambar/' . $row->gambar; ?>" width="80"
+										src="<?php echo base_url() . 'gambar/' . $row->gambar; ?>" width="80"
 										height="80"></td>
 								<td class="product-name"><?php echo $row->nama_barang ?></td>
 								<td class="price">Rp. <?php echo number_format($row->harga) ?></td>

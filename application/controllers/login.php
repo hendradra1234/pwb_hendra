@@ -18,8 +18,11 @@
 			$password = $this->input->post("password");
 			$cek = $this->Login_model->get_data_pelanggan($email_pelanggan, $password);
 			if ($cek) {
-				$session = array('user' => "pelanggan",
-								'email_pelanggan' => $email_pelanggan );
+				$session = array('user' => $cek[0]->nama_pelanggan,
+								'username' => $cek[0]->kd_pelanggan,
+								'email_pelanggan' => $cek[0]->email_pelanggan,
+								'telp_pelanggan' => $cek[0]->telp_pelanggan
+							);
 				$this->session->set_userdata($session);
 				redirect('/home');
 			} else {
@@ -41,6 +44,7 @@
 		}
 
 		public function simpan_registrasi() {
+			$id = $this->Login_model->generate_id();
 			$this->form_validation->set_rules('nama_pelanggan', 'Nama Pelanggan', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 			$this->form_validation->set_rules('email_pelanggan', 'Email Pelanggan', 'required');
@@ -52,6 +56,7 @@
 				$this->load->view('Layout/Wrapper', $data);
 			} else {
 				$data = array(
+					'kd_pelanggan' => $id,
 					'nama_pelanggan' => $this->input->post('nama_pelanggan'),
 					'alamat_pelanggan' => $this->input->post('alamat_pelanggan'),
 					'kota_pelanggan' => $this->input->post('kota_pelanggan'),
