@@ -34,7 +34,7 @@ CREATE TABLE barang (
 
 -- 3
 CREATE TABLE ekspedisi (
-    kd_ekspedisi VARCHAR(10) PRIMARY KEY,
+    kd_ekspedisi INT(10) PRIMARY KEY,
     nama_ekspedisi VARCHAR(50) NOT NULL,
     tujuan VARCHAR(50) NOT NULL,
     ongkir INT(8) NOT NULL
@@ -48,7 +48,7 @@ CREATE TABLE pesanan (
     alamat VARCHAR(100) NOT NULL,
     telp VARCHAR(15) NOT NULL,
     status VARCHAR(50) NOT NULL,
-	kd_ekspedisi VARCHAR(10) NOT NULL,
+	kd_ekspedisi INT(10) NOT NULL,
 	kd_pelanggan INT(3) NOT NULL,
     FOREIGN KEY (kd_ekspedisi) REFERENCES ekspedisi(kd_ekspedisi),
 	FOREIGN KEY (kd_pelanggan) REFERENCES pelanggan(kd_pelanggan)
@@ -98,6 +98,15 @@ CREATE TABLE keranjang (
 	FOREIGN KEY (kd_barang) REFERENCES barang(kd_barang)
 );
 
+CREATE TABLE pengiriman232250009hendra (
+	id_kirim009 INT(10) PRIMARY KEY,
+	tgl_kirim009 VARCHAR(50) NOT NULL,
+	jenis_kirim009 INT(10) NOT NULL,
+	keterangan009 TEXT NOT NULL,
+
+	 FOREIGN KEY (jenis_kirim009) REFERENCES ekspedisi(kd_ekspedisi)
+);
+
 -- Default Migration
 INSERT INTO `users` (`id`, `username`, `password`, `user_role`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
@@ -109,8 +118,8 @@ INSERT INTO `barang` (`kd_barang`, `nama_barang`, `stok`, `harga`, `berat`, `sat
 ('5', 'tes', 8, 250000, 20, 'kg', 'keterangan', 'josh-bean-Gecsh_1GOz4-unsplash.jpg');
 
 INSERT INTO `ekspedisi` (`kd_ekspedisi`, `nama_ekspedisi`, `tujuan`, `ongkir`) VALUES
-('1', 'jne ekspedisi', 'sungailiat', 200000),
-('2', 'jne kargo id', 'Toboali', 245000);
+(1, 'jne ekspedisi', 'sungailiat', 200000),
+(2, 'jne kargo id', 'Toboali', 245000);
 
 INSERT INTO `pelanggan` (`kd_pelanggan`, `nama_pelanggan`, `alamat_pelanggan`, `kota_pelanggan`, `telp_pelanggan`, `email_pelanggan`, `password`) VALUES
 (1, 'novi yunita', 'jakarta barat, indonesia', 'jakarta', '082788271281', 'noviynita@gmail.com', '25d55ad283aa400af464c76d713c07ad'),
@@ -120,15 +129,15 @@ INSERT INTO `pelanggan` (`kd_pelanggan`, `nama_pelanggan`, `alamat_pelanggan`, `
 (5, 'testing', 'testing', 'Tangerang', '081217271722', 'testing@gmail.com', '1223e23e34r34');
 
 INSERT INTO `pesanan` (`no_pesanan`, `tanggal_pesanan`, `nama`, `alamat`, `telp`, `status`, `kd_ekspedisi`, `kd_pelanggan`) VALUES
-('PS001', '2025-07-20', 'hendra', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS002', '2025-07-20', 'hendra', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
+('PS001', '2025-07-20', 'hendra', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS002', '2025-07-20', 'hendra', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
 ('PS003', '2025-07-20', '', '', '', 'Sudah Bayar', '1', 2),
-('PS004', '2025-07-20', 'tes', 'alamat tes', '08172727212', 'Sudah Bayar', '1', 2),
-('PS005', '2025-07-20', 'hendra', 'alamat tes', '08172727212', 'Sudah Bayar', '1', 2),
-('PS006', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS007', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS008', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS009', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2);
+('PS004', '2025-07-20', 'tes', 'alamat tes', '08172727212', 'Sudah Bayar', 1, 2),
+('PS005', '2025-07-20', 'hendra', 'alamat tes', '08172727212', 'Sudah Bayar', 1, 2),
+('PS006', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS007', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS008', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS009', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', 1, 2);
 
 INSERT INTO `ada` (`no_pesanan`, `kd_barang`, `qty`, `harga`) VALUES
 ('PS001', '2', 2, 250000),
