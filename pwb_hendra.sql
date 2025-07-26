@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2025 at 04:08 AM
+-- Generation Time: Jul 26, 2025 at 08:54 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -51,7 +51,11 @@ INSERT INTO `ada` (`no_pesanan`, `kd_barang`, `qty`, `harga`) VALUES
 ('PS007', '2', 1, 250000),
 ('PS007', '5', 1, 250000),
 ('PS008', '2', 1, 250000),
-('PS009', '5', 1, 250000);
+('PS009', '5', 1, 250000),
+('PS010', '2', 1, 250000),
+('PS011', '1', 1, 25000000),
+('PS011', '2', 1, 250000),
+('PS011', '5', 4, 250000);
 
 -- --------------------------------------------------------
 
@@ -75,9 +79,9 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`kd_barang`, `nama_barang`, `stok`, `harga`, `berat`, `satuan`, `keterangan`, `gambar`) VALUES
-('1', 'LA San Franciso Bay Condo', 96, 25000000, 20, '10', '100', 'josh-bean-Gecsh_1GOz4-unsplash.jpg'),
-('2', 'b2 spirit used', 11, 250000, 30, 'kg', 'b2 spirit', 'b2_2.jpg'),
-('5', 'tes', 8, 250000, 20, 'kg', 'keterangan', 'josh-bean-Gecsh_1GOz4-unsplash.jpg');
+('1', 'LA San Franciso Bay Condo', 95, 25000000, 20, '10', '100', 'josh-bean-Gecsh_1GOz4-unsplash.jpg'),
+('2', 'b2 spirit used', 9, 250000, 30, 'kg', 'b2 spirit', 'b2_2.jpg'),
+('5', 'tes', 4, 250000, 20, 'kg', 'keterangan', 'josh-bean-Gecsh_1GOz4-unsplash.jpg');
 
 -- --------------------------------------------------------
 
@@ -125,14 +129,6 @@ CREATE TABLE `obat` (
   `jenis_obat` varchar(25) NOT NULL,
   `stok` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `obat`
---
-
-INSERT INTO `obat` (`kd_obat`, `nm_obat`, `satuan`, `jenis_obat`, `stok`) VALUES
-('1', 'tes1', 'tes1', 'tes1', 2),
-('4', 'paracetamol ultra pro max', 'pack', 'obat keras', 100);
 
 -- --------------------------------------------------------
 
@@ -187,7 +183,9 @@ INSERT INTO `pembayaran` (`kd_pembayaran`, `tanggal_pembayaran`, `bukti_transfer
 ('PMB006', '2025-07-20', 'PMB006', 'PS006'),
 ('PMB007', '2025-07-20', 'PMB007', 'PS007'),
 ('PMB008', '2025-07-26', 'PMB008', 'PS008'),
-('PMB009', '2025-07-26', 'PMB009', 'PS009');
+('PMB009', '2025-07-26', 'PMB009', 'PS009'),
+('PMB010', '2025-07-26', 'PMB010', 'PS010'),
+('PMB011', '2025-07-26', 'PMB011', 'PS011');
 
 -- --------------------------------------------------------
 
@@ -219,7 +217,9 @@ INSERT INTO `pesanan` (`no_pesanan`, `tanggal_pesanan`, `nama`, `alamat`, `telp`
 ('PS006', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
 ('PS007', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
 ('PS008', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS009', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2);
+('PS009', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
+('PS010', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
+('PS011', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2);
 
 -- --------------------------------------------------------
 
@@ -298,6 +298,28 @@ ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`no_pesanan`),
   ADD KEY `kd_ekspedisi` (`kd_ekspedisi`),
   ADD KEY `kd_pelanggan` (`kd_pelanggan`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  MODIFY `kd_pelanggan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
