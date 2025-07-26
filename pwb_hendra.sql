@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2025 at 08:54 AM
+-- Generation Time: Jul 26, 2025 at 02:55 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -51,11 +51,7 @@ INSERT INTO `ada` (`no_pesanan`, `kd_barang`, `qty`, `harga`) VALUES
 ('PS007', '2', 1, 250000),
 ('PS007', '5', 1, 250000),
 ('PS008', '2', 1, 250000),
-('PS009', '5', 1, 250000),
-('PS010', '2', 1, 250000),
-('PS011', '1', 1, 25000000),
-('PS011', '2', 1, 250000),
-('PS011', '5', 4, 250000);
+('PS009', '5', 1, 250000);
 
 -- --------------------------------------------------------
 
@@ -79,9 +75,9 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`kd_barang`, `nama_barang`, `stok`, `harga`, `berat`, `satuan`, `keterangan`, `gambar`) VALUES
-('1', 'LA San Franciso Bay Condo', 95, 25000000, 20, '10', '100', 'josh-bean-Gecsh_1GOz4-unsplash.jpg'),
-('2', 'b2 spirit used', 9, 250000, 30, 'kg', 'b2 spirit', 'b2_2.jpg'),
-('5', 'tes', 4, 250000, 20, 'kg', 'keterangan', 'josh-bean-Gecsh_1GOz4-unsplash.jpg');
+('1', 'LA San Franciso Bay Condo', 96, 25000000, 20, '10', '100', 'josh-bean-Gecsh_1GOz4-unsplash.jpg'),
+('2', 'b2 spirit used', 11, 250000, 30, 'kg', 'b2 spirit', 'b2_2.jpg'),
+('5', 'tes', 8, 250000, 20, 'kg', 'keterangan', 'josh-bean-Gecsh_1GOz4-unsplash.jpg');
 
 -- --------------------------------------------------------
 
@@ -90,7 +86,7 @@ INSERT INTO `barang` (`kd_barang`, `nama_barang`, `stok`, `harga`, `berat`, `sat
 --
 
 CREATE TABLE `ekspedisi` (
-  `kd_ekspedisi` varchar(10) NOT NULL,
+  `kd_ekspedisi` int(10) NOT NULL,
   `nama_ekspedisi` varchar(50) NOT NULL,
   `tujuan` varchar(50) NOT NULL,
   `ongkir` int(8) NOT NULL
@@ -101,8 +97,8 @@ CREATE TABLE `ekspedisi` (
 --
 
 INSERT INTO `ekspedisi` (`kd_ekspedisi`, `nama_ekspedisi`, `tujuan`, `ongkir`) VALUES
-('1', 'jne ekspedisi', 'sungailiat', 200000),
-('2', 'jne kargo id', 'Toboali', 245000);
+(1, 'jne ekspedisi', 'sungailiat', 200000),
+(2, 'jne kargo id', 'Toboali', 245000);
 
 -- --------------------------------------------------------
 
@@ -183,9 +179,20 @@ INSERT INTO `pembayaran` (`kd_pembayaran`, `tanggal_pembayaran`, `bukti_transfer
 ('PMB006', '2025-07-20', 'PMB006', 'PS006'),
 ('PMB007', '2025-07-20', 'PMB007', 'PS007'),
 ('PMB008', '2025-07-26', 'PMB008', 'PS008'),
-('PMB009', '2025-07-26', 'PMB009', 'PS009'),
-('PMB010', '2025-07-26', 'PMB010', 'PS010'),
-('PMB011', '2025-07-26', 'PMB011', 'PS011');
+('PMB009', '2025-07-26', 'PMB009', 'PS009');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengiriman232250009hendra`
+--
+
+CREATE TABLE `pengiriman232250009hendra` (
+  `id_kirim009` int(10) NOT NULL,
+  `tgl_kirim009` varchar(50) NOT NULL,
+  `jenis_kirim009` int(10) NOT NULL,
+  `keterangan009` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -200,7 +207,7 @@ CREATE TABLE `pesanan` (
   `alamat` varchar(100) NOT NULL,
   `telp` varchar(15) NOT NULL,
   `status` varchar(50) NOT NULL,
-  `kd_ekspedisi` varchar(10) NOT NULL,
+  `kd_ekspedisi` int(10) NOT NULL,
   `kd_pelanggan` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -209,17 +216,15 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`no_pesanan`, `tanggal_pesanan`, `nama`, `alamat`, `telp`, `status`, `kd_ekspedisi`, `kd_pelanggan`) VALUES
-('PS001', '2025-07-20', 'hendra', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS002', '2025-07-20', 'hendra', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS003', '2025-07-20', '', '', '', 'Sudah Bayar', '1', 2),
-('PS004', '2025-07-20', 'tes', 'alamat tes', '08172727212', 'Sudah Bayar', '1', 2),
-('PS005', '2025-07-20', 'hendra', 'alamat tes', '08172727212', 'Sudah Bayar', '1', 2),
-('PS006', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS007', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS008', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS009', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS010', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS011', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2);
+('PS001', '2025-07-20', 'hendra', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS002', '2025-07-20', 'hendra', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS003', '2025-07-20', '', '', '', 'Sudah Bayar', 1, 2),
+('PS004', '2025-07-20', 'tes', 'alamat tes', '08172727212', 'Sudah Bayar', 1, 2),
+('PS005', '2025-07-20', 'hendra', 'alamat tes', '08172727212', 'Sudah Bayar', 1, 2),
+('PS006', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS007', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS008', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', 1, 2),
+('PS009', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -292,6 +297,13 @@ ALTER TABLE `pembayaran`
   ADD KEY `no_pesanan` (`no_pesanan`);
 
 --
+-- Indexes for table `pengiriman232250009hendra`
+--
+ALTER TABLE `pengiriman232250009hendra`
+  ADD PRIMARY KEY (`id_kirim009`),
+  ADD KEY `jenis_kirim009` (`jenis_kirim009`);
+
+--
 -- Indexes for table `pesanan`
 --
 ALTER TABLE `pesanan`
@@ -344,6 +356,12 @@ ALTER TABLE `keranjang`
 --
 ALTER TABLE `pembayaran`
   ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`no_pesanan`) REFERENCES `pesanan` (`no_pesanan`);
+
+--
+-- Constraints for table `pengiriman232250009hendra`
+--
+ALTER TABLE `pengiriman232250009hendra`
+  ADD CONSTRAINT `pengiriman232250009hendra_ibfk_1` FOREIGN KEY (`jenis_kirim009`) REFERENCES `ekspedisi` (`kd_ekspedisi`);
 
 --
 -- Constraints for table `pesanan`
