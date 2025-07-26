@@ -15,12 +15,13 @@
 						</thead>
 						<tbody>
 							<?php
-                            	if ($data3)
-                            	    $grandtotal = 0;
-                                foreach ($data3 as $row) {
-                                    foreach ($data4 as $col) {
-                                        $grandtotal += $col->qty * $col->harga;
-                                    }
+                                foreach($data3 as $row) {
+									$grandtotal = 0;
+									foreach ($data4 as $col) {
+										if ($col->no_pesanan == $row->no_pesanan) {
+											$grandtotal += $col->qty * $col->harga;
+										}
+									}
                             ?>
 							<tr class="text-center">
 								<td><?php echo $row->no_pesanan ?></td>

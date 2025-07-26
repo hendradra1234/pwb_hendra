@@ -48,7 +48,6 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>pesanan">Lihat Pesanan</a></li>
                   <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>pembayaran">Lihat Pembayaran</a></li>
-									</li><li class="nav-item"><a class="nav-link" href="<?php echo base_url() ?>laporan/laporan_view_form">Laporan Penjualan</a></li>
                 </ul>
               </div>
             </li>
@@ -60,7 +59,7 @@
               </a>
               <div class="collapse" id="ui-report">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="<?php echo base_url() ?>laporan_penjualan">Laporan Penjualan</a></li>
+									<li class="nav-item"><a class="nav-link" href="<?php echo base_url() ?>laporan/laporan_view_form">Laporan Penjualan</a></li>
                 </ul>
               </div>
             </li>

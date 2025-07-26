@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2025 at 01:14 PM
+-- Generation Time: Jul 26, 2025 at 04:08 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -49,7 +49,9 @@ INSERT INTO `ada` (`no_pesanan`, `kd_barang`, `qty`, `harga`) VALUES
 ('PS006', '1', 1, 25000000),
 ('PS007', '1', 1, 25000000),
 ('PS007', '2', 1, 250000),
-('PS007', '5', 1, 250000);
+('PS007', '5', 1, 250000),
+('PS008', '2', 1, 250000),
+('PS009', '5', 1, 250000);
 
 -- --------------------------------------------------------
 
@@ -74,8 +76,8 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`kd_barang`, `nama_barang`, `stok`, `harga`, `berat`, `satuan`, `keterangan`, `gambar`) VALUES
 ('1', 'LA San Franciso Bay Condo', 96, 25000000, 20, '10', '100', 'josh-bean-Gecsh_1GOz4-unsplash.jpg'),
-('2', 'b2 spirit used', 12, 250000, 30, 'kg', 'b2 spirit', 'b2_2.jpg'),
-('5', 'tes', 9, 250000, 20, 'kg', 'keterangan', 'josh-bean-Gecsh_1GOz4-unsplash.jpg');
+('2', 'b2 spirit used', 11, 250000, 30, 'kg', 'b2 spirit', 'b2_2.jpg'),
+('5', 'tes', 8, 250000, 20, 'kg', 'keterangan', 'josh-bean-Gecsh_1GOz4-unsplash.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,7 +185,9 @@ INSERT INTO `pembayaran` (`kd_pembayaran`, `tanggal_pembayaran`, `bukti_transfer
 ('PMB004', '2025-07-20', 'PMB004', 'PS001'),
 ('PMB005', '2025-07-20', 'PMB005', 'PS005'),
 ('PMB006', '2025-07-20', 'PMB006', 'PS006'),
-('PMB007', '2025-07-20', 'PMB007', 'PS007');
+('PMB007', '2025-07-20', 'PMB007', 'PS007'),
+('PMB008', '2025-07-26', 'PMB008', 'PS008'),
+('PMB009', '2025-07-26', 'PMB009', 'PS009');
 
 -- --------------------------------------------------------
 
@@ -213,7 +217,9 @@ INSERT INTO `pesanan` (`no_pesanan`, `tanggal_pesanan`, `nama`, `alamat`, `telp`
 ('PS004', '2025-07-20', 'tes', 'alamat tes', '08172727212', 'Sudah Bayar', '1', 2),
 ('PS005', '2025-07-20', 'hendra', 'alamat tes', '08172727212', 'Sudah Bayar', '1', 2),
 ('PS006', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
-('PS007', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2);
+('PS007', '2025-07-20', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
+('PS008', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2),
+('PS009', '2025-07-26', 'tes', 'alamat', '08172727212', 'Sudah Bayar', '1', 2);
 
 -- --------------------------------------------------------
 

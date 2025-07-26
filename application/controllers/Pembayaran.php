@@ -56,7 +56,7 @@
 				);
 				$this->Pembayaran_model->edit_status('pesanan', $data1, $this->input->post('no_pesanan'));
 				$this->General_model->add_new('pembayaran', $data);
-				redirect(base_url() . 'Home/');
+				redirect(base_url() . 'keranjang/histori_pesanan_pelanggan');
 			}
 		}
 	}
